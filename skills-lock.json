@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "skills": {
+    "agents": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "agents/SKILL.md",
+      "computedHash": "f17532654c1ab12e6c69bf5faf10bc571e696488d13c3eeb8514449a32c5bbc8"
+    },
+    "mastra": {
+      "source": "mastra-ai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mastra/SKILL.md",
+      "computedHash": "73f845aa59d106d408dfaae1089184fe364acda60fa09683480fdc090417712f"
+    },
+    "setup-api-key": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "setup-api-key/SKILL.md",
+      "computedHash": "f8daa32a413354452b90480ffe5acd056dc04608108463bd5d014a8af56dd077"
+    },
+    "text-to-speech": {
+      "source": "elevenlabs/skills",
+      "sourceType": "github",
+      "skillPath": "text-to-speech/SKILL.md",
+      "computedHash": "d62f83848f390707a99665cbb0ce221433c9f65a128e5291640b72c90766d982"
+    },
+    "twilio-account-setup": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-account-setup/SKILL.md",
+      "computedHash": "1c42c5d2dc5e446172a693884fc4ee198de6994d086f214ec6b2ee1cae885389"
+    },
+    "twilio-numbers-senders": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-numbers-senders/SKILL.md",
+      "computedHash": "53f3761f38550f265ac4ccb4fef9b194d1f32fb2545162082efc07a17ba30424"
+    },
+    "twilio-regulatory-compliance-bundles": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-regulatory-compliance-bundles/SKILL.md",
+      "computedHash": "0b1395bfa695e67816b2bb2df3a731ae0a12bd9543e4658919626609ac09e627"
+    },
+    "twilio-voice-outbound-calls": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-voice-outbound-calls/SKILL.md",
+      "computedHash": "3707efda80e10b61e78848fbad0370e4108d026ba8a116be5fb71a59eb66e4ce"
+    },
+    "twilio-voice-twiml": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-voice-twiml/SKILL.md",
+      "computedHash": "3c9dc95640faedfe54e63b2abaadf6619784f9b843cd0f42e843099d3777aa0d"
+    },
+    "twilio-webhook-architecture": {
+      "source": "twilio/ai",
+      "sourceType": "github",
+      "skillPath": "skills/twilio/twilio-webhook-architecture/SKILL.md",
+      "computedHash": "552caace9670451c413491e58abdeb8abea83f0f34514dfa781e14084a0793dc"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booker fictional call demo</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0c1018;color:#f1f5fa}
+body{margin:0}main{max-width:1060px;margin:0 auto;padding:48px}
+header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #28303f;padding-bottom:24px}
+.brand{font-size:24px;font-weight:700}.badge{font-size:13px;color:#a7bfff;background:#172849;border:1px solid #345489;padding:8px 14px;border-radius:24px}
+section{margin-top:54px}h1{font-size:52px;letter-spacing:-2px;line-height:1.1;max-width:860px;margin:18px 0 24px}
+p{color:#b1bdcd;font-size:22px;line-height:1.5;max-width:900px}.eyebrow{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#8faeff}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #293443;background:#121a28;border-radius:16px;padding:28px;color:#c9e2cc;font:18px/1.65 ui-monospace,monospace}
+footer{display:flex;justify-content:space-between;margin-top:36px;font-size:14px;color:#8c9aac}.progress{height:4px;background:#243044;margin-top:24px}.progress span{display:block;height:4px;background:#88aaff;width:0;transition:width .3s}
+button{border:1px solid #345489;background:#172849;color:#c7d6ff;padding:12px 20px;border-radius:10px;font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+<header><span class="brand">Booker</span><span class="badge">SIMULATION · FICTIONAL DATA · NO PHONE CALL</span></header>
+<section aria-live="polite"><div class="eyebrow" id="step"></div><h1 id="title">The calls you keep putting off.</h1><p id="description"></p><pre id="evidence"></pre></section>
+<footer><span>In-process voice tools and signed webhooks</span><span id="time"></span></footer>
+<div class="progress"><span id="progress"></span></div>
+<p><button id="restart" type="button">Replay the simulation walkthrough</button></p>
+</main>
+<script>
+const slides=[
+{start:0,step:'01 / The errand',title:'The calls you keep putting off.',description:'Collect quotes, compare them against your rules, and check permission before one booking. This is a replay of a passing simulation, without phone audio.',evidence:'Booker\nA fictional dinner errand\nFour participants · EUR 200 group limit'},
+{start:10,step:'02 / The brief',title:'Your rules travel with the call.',description:'The fake brief names Participant A through D and fictional restaurants. Its dates are fixed to the simulation clock.',evidence:'examples/errands/demo.example.json\nObjective: collect a fictional dinner quote\nRequirement: all four participants together\nGroup limit: EUR 200\nProviders: Harborview Bistro and Old Town Grill'},
+{start:25,step:'03 / The simulated conversation',title:'A quote is evidence, not permission.',description:'The scripted provider uses authenticated voice tools and a signed post-call webhook. Confirmed fields become an eligible offer.',evidence:'pnpm simulate\nplanCallRound → scripted quote call\nget-errand-context → record-quote-field\nsigned post-call webhook → rankOffers\nQuote calls cannot access booking tools'},
+{start:45,step:'04 / The authorization check',title:'Code decides whether to book.',description:'A separate simulated commit call requests permission for the exact agreed terms. The grant is checked before the outcome is stored.',evidence:'request-commit-permission → granted: true\nreport-commit-outcome → recorded: true\nProvider: Harborview Bistro\nParticipants: A, B, C, D\nBooking status: verbal'},
+{start:65,step:'05 / The evidence',title:'The same path. Two store types.',description:'The demo and restaurant fixtures pass against in-memory stores and temporary SQLite. The entire simulation suite also covers changed prices, injection and capped retries.',evidence:'Recorded validation: pnpm simulate\nTest Files  6 passed (6)\nTests       14 passed (14)\nDemo fixture: passed with both store types\nVerbal reservation is separate from written confirmation'},
+{start:80,step:'06 / Next',title:'Simulation complete.',description:'A real quote-only call to the consenting owner phone is a separate step, pending an owner yes and the live host decision.',evidence:'No outgoing phone call\nNo live database\nNo provider credentials\nNo real participant or contact data\nLive recording remains pending owner approval'}
+];
+let started=performance.now();
+function update(){const elapsed=Math.min(90,Math.floor((performance.now()-started)/1000));const slide=[...slides].reverse().find(s=>elapsed>=s.start);for(const key of ['step','title','description','evidence'])document.getElementById(key).textContent=slide[key];document.getElementById('time').textContent=`${elapsed} / 90 seconds`;document.getElementById('progress').style.width=`${elapsed/90*100}%`;}
+document.getElementById('restart').onclick=()=>{started=performance.now();update();};update();setInterval(update,250);
+</script>
+</body>
+</html>

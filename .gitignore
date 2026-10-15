@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build and test output
+dist/
+coverage/
+*.tsbuildinfo
+# Next.js (apps/dashboard): build output and its generated type stub
+.next/
+next-env.d.ts
+.mastra/
+
+# Environment and secrets (only the template is tracked)
+.env
+.env.*
+!.env.example
+
+# Personal and runtime data: real errands, participants, recordings,
+# transcripts, and databases never leave the local machine.
+.local/
+data/
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+recordings/
+transcripts/
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.flac
+
+# Python (voice fallback service)
+__pycache__/
+.venv/
+*.pyc
+
+# Agent tooling: installed skills are not vendored; skills-lock.json records them
+# (see docs/agent-skills.md)
+.agents/
+.atl/
+.claude/skills/
+.claude/settings.local.json
+.codegraph/
+# Agent workflow task logs (kept locally and in the agent memory store, not published)
+odd/
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+*.log

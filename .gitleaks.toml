@@ -1,0 +1,30 @@
+title = "Booker secret and personal-data scanning"
+
+# Start from the upstream rule set and add rules for the services Booker uses.
+# Coverage is exercised by tests/secret-scanning.test.ts.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "elevenlabs-api-key"
+description = "ElevenLabs API key"
+regex = '''\bsk_[a-f0-9]{48}\b'''
+keywords = ["sk_"]
+
+[[rules]]
+id = "anthropic-oauth-token"
+description = "Claude Code OAuth token"
+regex = '''sk-ant-oat01-[A-Za-z0-9_\-]{20,}'''
+keywords = ["sk-ant-oat01"]
+
+# Personal data must stay in .local/. Committed examples use fictional +1 555 01xx numbers.
+[[rules]]
+id = "spanish-phone-number"
+description = "Spanish phone number with country code (+34, 0034, or (+34))"
+regex = '''(?:\(\+34\)|\+34|\b0034)[\s.-]?[6789]\d{2}[\s.-]?\d{2,3}[\s.-]?\d{2,3}(?:[\s.-]?\d{2})?\b'''
+keywords = ["+34", "0034"]
+
+[[rules]]
+id = "spanish-phone-number-national"
+description = "Spanish phone number in grouped national format (mobile or landline)"
+regex = '''\b[6789]\d{2}[\s.-]\d{2,3}[\s.-]\d{2,3}(?:[\s.-]\d{2})?\b'''
