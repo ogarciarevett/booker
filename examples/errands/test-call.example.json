@@ -1,0 +1,46 @@
+{
+  "id": "errand-test-call-001",
+  "kind": "driving-school",
+  "objective": "Ask about an intensive driving course for one participant, to test a live call.",
+  "timeZone": "Europe/Madrid",
+  "participants": [
+    {
+      "id": "participant-a",
+      "label": "Participant A",
+      "attributes": { "licenceCategory": "B" }
+    }
+  ],
+  "location": {
+    "area": "Northside district",
+    "acceptableAlternatives": []
+  },
+  "dates": {
+    "window": { "start": "2026-11-02", "end": "2026-11-13" },
+    "flexibilityDays": 3
+  },
+  "hardRequirements": [],
+  "preferences": [],
+  "spendLimits": {
+    "currency": "EUR",
+    "totalMax": { "amountCents": 120000, "currency": "EUR" }
+  },
+  "authorizedActions": ["quote"],
+  "groupPolicy": { "sameProvider": true, "allowPartialBooking": false },
+  "completion": {
+    "description": "A quote with the price, the dates, and the deposit.",
+    "requiresWrittenConfirmation": false
+  },
+  "questions": [
+    { "id": "q-dates", "text": "When does the next intensive course start and end?" },
+    { "id": "q-price", "text": "How much does it cost, and is there a registration fee?" },
+    { "id": "q-deposit", "text": "Is a deposit required to reserve a place?" }
+  ],
+  "providers": [
+    {
+      "id": "provider-test-line",
+      "name": "Test Line Driving School",
+      "phoneE164": "+15550100100"
+    }
+  ],
+  "shareableAttributes": ["licenceCategory"]
+}

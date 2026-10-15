@@ -1,0 +1,101 @@
+{
+  "id": "errand-restaurant-001",
+  "kind": "restaurant-reservation",
+  "objective": "Demo: collect a fictional dinner quote and simulate one reservation for four.",
+  "timeZone": "Europe/Madrid",
+  "participants": [
+    {
+      "id": "participant-a",
+      "label": "Participant A",
+      "attributes": {}
+    },
+    {
+      "id": "participant-b",
+      "label": "Participant B",
+      "attributes": {
+        "dietaryRestriction": "vegetarian"
+      }
+    },
+    {
+      "id": "participant-c",
+      "label": "Participant C",
+      "attributes": {}
+    },
+    {
+      "id": "participant-d",
+      "label": "Participant D",
+      "attributes": {}
+    }
+  ],
+  "location": {
+    "area": "Downtown",
+    "acceptableAlternatives": ["Midtown"]
+  },
+  "dates": {
+    "window": {
+      "start": "2026-10-10",
+      "end": "2026-10-10"
+    },
+    "flexibilityDays": 1
+  },
+  "hardRequirements": [
+    {
+      "id": "req-party-size",
+      "description": "Table must seat all four participants together",
+      "field": "tableCapacity",
+      "rule": {
+        "op": "atLeast",
+        "value": 4
+      }
+    }
+  ],
+  "preferences": [
+    {
+      "id": "pref-outdoor-seating",
+      "description": "Prefer outdoor seating if available"
+    }
+  ],
+  "spendLimits": {
+    "currency": "EUR",
+    "perParticipantMax": {
+      "amountCents": 5000,
+      "currency": "EUR"
+    },
+    "totalMax": {
+      "amountCents": 20000,
+      "currency": "EUR"
+    }
+  },
+  "authorizedActions": ["quote", "hold", "book"],
+  "groupPolicy": {
+    "sameProvider": true,
+    "allowPartialBooking": false
+  },
+  "completion": {
+    "description": "Reservation confirmed for all four participants at the agreed time.",
+    "requiresWrittenConfirmation": false
+  },
+  "questions": [
+    {
+      "id": "q-availability",
+      "text": "What table availability do you have for a party of four this weekend?"
+    },
+    {
+      "id": "q-dietary",
+      "text": "Can the kitchen accommodate a vegetarian diner?"
+    }
+  ],
+  "providers": [
+    {
+      "id": "provider-harborview",
+      "name": "Harborview Bistro",
+      "phoneE164": "+15555550102"
+    },
+    {
+      "id": "provider-oldtown",
+      "name": "Old Town Grill",
+      "phoneE164": "+15555550103"
+    }
+  ],
+  "shareableAttributes": ["dietaryRestriction"]
+}

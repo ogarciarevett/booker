@@ -1,0 +1,79 @@
+{
+  "id": "errand-driving-school-001",
+  "kind": "driving-school",
+  "objective": "Enroll two participants in an intensive driving course with back-to-back theory and practical phases.",
+  "timeZone": "Europe/Madrid",
+  "participants": [
+    {
+      "id": "participant-a",
+      "label": "Participant A",
+      "attributes": { "theoryExamPassed": true, "licenceCategory": "B" }
+    },
+    {
+      "id": "participant-b",
+      "label": "Participant B",
+      "attributes": { "theoryExamPassed": false, "licenceCategory": "B" }
+    }
+  ],
+  "location": {
+    "area": "Northside district",
+    "acceptableAlternatives": ["Northside Annex"]
+  },
+  "dates": {
+    "window": { "start": "2026-11-02", "end": "2026-11-13" },
+    "flexibilityDays": 3
+  },
+  "hardRequirements": [
+    {
+      "id": "req-licence-category",
+      "description": "Course must cover licence category B",
+      "field": "licenceCategory",
+      "rule": { "op": "equals", "value": "B" }
+    },
+    {
+      "id": "req-back-to-back",
+      "description": "Theory and practical phases must run back-to-back",
+      "field": "backToBackPhases",
+      "rule": { "op": "equals", "value": true }
+    }
+  ],
+  "preferences": [
+    { "id": "pref-weekday-mornings", "description": "Prefer weekday morning sessions" }
+  ],
+  "spendLimits": {
+    "currency": "EUR",
+    "perParticipantMax": { "amountCents": 120000, "currency": "EUR" },
+    "totalMax": { "amountCents": 240000, "currency": "EUR" },
+    "depositMax": { "amountCents": 20000, "currency": "EUR" },
+    "cancellationPenaltyMax": { "amountCents": 10000, "currency": "EUR" }
+  },
+  "authorizedActions": ["quote", "hold", "book"],
+  "groupPolicy": { "sameProvider": true, "allowPartialBooking": false },
+  "completion": {
+    "description": "Both participants enrolled in the same course with a confirmed back-to-back schedule.",
+    "requiresWrittenConfirmation": true
+  },
+  "questions": [
+    {
+      "id": "q-schedule",
+      "text": "What are the available start dates for back-to-back theory and practical phases?"
+    },
+    {
+      "id": "q-group-discount",
+      "text": "Is there a discount for enrolling two participants together?"
+    }
+  ],
+  "providers": [
+    {
+      "id": "provider-northside",
+      "name": "Northside Driving School",
+      "phoneE164": "+15555550100"
+    },
+    {
+      "id": "provider-harbor",
+      "name": "Harbor View Driving Academy",
+      "phoneE164": "+15555550101"
+    }
+  ],
+  "shareableAttributes": ["theoryExamPassed", "licenceCategory"]
+}

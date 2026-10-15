@@ -1,0 +1,22 @@
+# Git hooks installed by `pnpm install` (see the "prepare" script).
+# Requires gitleaks on PATH, same version as CI (see .github/workflows/ci.yml):
+# https://github.com/gitleaks/gitleaks#installing
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: secrets
+      run: gitleaks git --pre-commit --staged --redact --no-banner --config .gitleaks.toml
+
+    - name: lint
+      glob: "*.{ts,js,json,jsonc}"
+      run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+
+    - name: typecheck
+      glob: "*.ts"
+      run: pnpm typecheck
+
+commit-msg:
+  jobs:
+    - name: conventional-commit
+      run: node scripts/check-commit-message.ts {1}

@@ -1,0 +1,12 @@
+# The root package (Booker itself) plus the local dashboard.
+packages:
+  - "apps/*"
+
+# pnpm blocks dependency build scripts unless they are listed here.
+allowBuilds:
+  # esbuild (via drizzle-kit) is not needed to generate migrations; its postinstall is skipped.
+  esbuild: false
+  # lefthook's postinstall only installs git hooks; the "prepare" script already runs `lefthook install`.
+  lefthook: false
+  # protobufjs (via the OTLP proto exporter) only checks dependents' version ranges after install.
+  protobufjs: false

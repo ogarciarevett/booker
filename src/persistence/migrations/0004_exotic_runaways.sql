@@ -1,0 +1,1 @@
+ALTER TABLE `calls` ADD `active_grant_terms_digest` text;

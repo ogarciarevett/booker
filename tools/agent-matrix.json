@@ -1,0 +1,40 @@
+{
+  "default": "writer",
+  "rows": [
+    {
+      "id": "writer",
+      "agent": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "purpose": "Default implementation of an ordinary coding task under strict TDD."
+    },
+    {
+      "id": "critical-writer",
+      "agent": "claude",
+      "model": "claude-opus-5-5",
+      "effort": "high",
+      "purpose": "A change touching money, permissions, persistence, or concurrency, where the extra reasoning is worth the cost."
+    },
+    {
+      "id": "reviewer",
+      "agent": "claude",
+      "model": "claude-sonnet-5-5",
+      "effort": "medium",
+      "purpose": "A cross-vendor review of another model's output before it merges."
+    },
+    {
+      "id": "explorer",
+      "agent": "claude",
+      "model": "claude-sonnet-5-5",
+      "effort": "medium",
+      "purpose": "Read-only mapping or research across the codebase, no writes."
+    },
+    {
+      "id": "docs",
+      "agent": "claude",
+      "model": "claude-sonnet-5-5",
+      "effort": "medium",
+      "purpose": "Writing or updating documentation such as guides, READMEs, or architecture notes."
+    }
+  ]
+}
