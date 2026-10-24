@@ -21,11 +21,12 @@ const isAtLeast = (current: Version, minimum: Version): boolean => {
 
 describe("toolchain", () => {
   it("runs on a Node.js version that satisfies the package.json engines lower bound", () => {
-    expect(packageJson.engines.node).toMatch(/^>=\d+(\.\d+){0,2}$/);
+    expect(packageJson.engines.node).toMatch(/^\^\d+\.\d+\.\d+$/);
 
     const minimum = parseVersion(packageJson.engines.node);
     const current = parseVersion(process.versions.node);
 
+    expect(current[0]).toBe(minimum[0]);
     expect(isAtLeast(current, minimum)).toBe(true);
   });
 });
