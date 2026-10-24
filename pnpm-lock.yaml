@@ -222,7 +222,7 @@ importers:
         specifier: ^2.1.14
         version: 2.1.14
       typescript:
-        specifier: ^7.0.2
+        specifier: 7.0.2
         version: 7.0.2
       vitest:
         specifier: ^5.0.2
