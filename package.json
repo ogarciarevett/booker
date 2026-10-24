@@ -33,7 +33,7 @@
     "drizzle-kit": "^0.31.11",
     "happy-dom": "20.14.5",
     "lefthook": "^2.1.14",
-    "typescript": "^7.0.2",
+    "typescript": "7.0.2",
     "vitest": "^5.0.2"
   },
   "dependencies": {
